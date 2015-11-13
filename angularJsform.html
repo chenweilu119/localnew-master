@@ -1,0 +1,32 @@
+<!doctype html>
+<html >
+    <head>
+    	<meta Charset="utf-8">
+        <script src="http://apps.bdimg.com/libs/angular.js/1.3.9/angular.min.js"></script>
+    </head>
+    <body>
+
+ <div ng-app="myApp" ng-controller="myCtrl">
+  <h2>我的笔记</h2>
+<textarea rows="10" cols="40" ng-model="message"></textarea><br>
+   <button ng-click="save()">保存</button>
+   <button ng-click="clear()">清除</button><br>
+   <p> 还剩余字数：<span >{{remaind()}}</span></p>
+ </div>
+       <script type="text/javascript">
+       var app=angular.module("myApp",[]);
+       app.controller("myCtrl",function($scope){
+        $scope.message="";
+        $scope.remaind=function(){ return 100-$scope.message.length};
+       // $scope.remaind="100-$scope.message.length";不是函数为什么不可以啊
+        
+        $scope.save=function(){
+          alert("已保存！");
+        }
+        $scope.clear=function(){$scope.message=""}
+       })
+       </script>
+    </body>
+</html>						
+
+
